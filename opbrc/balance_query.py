@@ -67,13 +67,12 @@ for address in address_all:
         for token in records:
             if token.get('tick') == '%s'%tick:
                 balance = token.get('balance')
+                total_balance += balance
+                n += 1
+                print(f'address:{address} balance:{balance}')
         print(balance)
     except:
         print(f'address:{address}', response.json())
         continue
-    total_balance += balance
-    n += 1
-    print(f'address:{address} balance:{balance}')
-    
 
 print(f'可查账户为：{n}, 总余额为：{total_balance}')
